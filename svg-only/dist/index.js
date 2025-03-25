@@ -27687,6 +27687,12 @@ const basePalettes = {
         colorDots: ["#1e1f21", "#0c8900", "#2bc20e", "#9cff00", "#39ff13"],
         colorSnake: "black",
     },
+    "ocean": {
+      colorDotBorder: "#1b1f230a",
+      colorEmpty: "#051124",
+      colorDots: ["#051124", "#9fe3ee", "#1e5880", "#103e62", "#002848"],
+      colorSnake: "white",
+  },
 };
 // aliases
 const palettes = { ...basePalettes };
