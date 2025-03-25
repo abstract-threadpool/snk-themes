@@ -36,7 +36,13 @@ export const basePalettes: Record<
     colorEmpty: "#051124",
     colorDots: ["#051124", "#9fe3ee", "#1e5880", "#103e62", "#002848"],
     colorSnake: "white",
-},
+  },
+  "rainbow": {
+    colorDotBorder: "#1b1f230a",
+    colorEmpty: "#0e2595",
+    colorDots: ["#0e2595", "#077f3b", "#e5d72e", "#ee7631", "#e22b3c"],
+    colorSnake: "purple",
+  },
 };
 
 // aliases
