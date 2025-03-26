@@ -9,16 +9,24 @@ for more information see the orignal Platane/snk repo
 
 <picture>
   <source
-    media="(prefers-color-scheme: dark)"
-    srcset="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake-dark.svg"
+    media="(prefers-color-scheme: fire)"
+    srcset="https://github.com/abstract-threadpool/abstract-threadpool/blob/output/fire.svg"
   />
   <source
-    media="(prefers-color-scheme: light)"
-    srcset="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake.svg"
+    media="(prefers-color-scheme: acid)"
+    srcset="https://github.com/abstract-threadpool/abstract-threadpool/blob/output/acid.svg"
+  />
+  <source
+    media="(prefers-color-scheme: ocean)"
+    srcset="https://github.com/abstract-threadpool/abstract-threadpool/blob/output/ocean.svg"
   />
   <img
     alt="github contribution grid snake animation"
-    src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake.svg"
+    src="https://github.com/abstract-threadpool/abstract-threadpool/blob/output/fire.svg"
+  />
+  <img
+    alt="github contribution grid snake animation"
+    src="https://github.com/abstract-threadpool/abstract-threadpool/blob/output/acid.svg"
   />
 </picture>
 
