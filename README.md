@@ -1,14 +1,11 @@
 # snk-themes
 
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/platane/platane/main.yml?label=action&style=flat-square)](https://github.com/Platane/Platane/actions/workflows/main.yml)
-[![GitHub release](https://img.shields.io/github/release/platane/snk.svg?style=flat-square)](https://github.com/platane/snk/releases/latest)
-[![GitHub marketplace](https://img.shields.io/badge/marketplace-snake-blue?logo=github&style=flat-square)](https://github.com/marketplace/actions/generate-snake-game-from-github-contribution-grid)
-![type definitions](https://img.shields.io/npm/types/typescript?style=flat-square)
-![code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
-
-A fork of Platane/snk that generates a snake game from a github user contributions graph and has #TODO multiple built in themes
+A fork of Platane/snk that generates a snake game from a github user contributions graph and adds in multiple themes 
 
 for more information see the orignal Platane/snk repo
+
+#TODO put in link to original repo
+#TODO generate animation for each theme and show below
 
 <picture>
   <source
@@ -33,45 +30,71 @@ Generate a [gif](https://github.com/Platane/snk/raw/output/github-contribution-g
 Available as github action. It can automatically generate a new image each day. Which makes for great [github profile readme](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)
 
 ## Usage
+#TODO add images to make easier to do 
 
 **github action**
 
 ```yaml
-- uses: Platane/snk@v3
-  with:
-    # github user name to read the contribution graph from (**required**)
-    # using action context var `github.repository_owner` or specified user
-    github_user_name: ${{ github.repository_owner }}
+name: generate animation
 
-    # list of files to generate.
-    # one file per line. Each output can be customized with options as query string.
-    #
-    #  supported options:
-    #  - palette:     A preset of color, one of [github, github-dark, github-light, fire, acid, ocean, rainbow]
-    #  - color_snake: Color of the snake
-    #  - color_dots:  Coma separated list of dots color.
-    #                 The first one is 0 contribution, then it goes from the low contribution to the highest.
-    #                 Exactly 5 colors are expected.
-    outputs: |
-      dist/github-snake.svg
-      dist/github-snake-dark.svg?palette=github-dark
-      dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+on:
+  # run automatically every 24 hours
+  schedule:
+    - cron: "0 */24 * * *" 
+  
+  # allows to manually run the job at any time
+  workflow_dispatch:
+  
+  # run on every push on the master branch
+  push:
+    branches:
+    - master
+    
+jobs:
+  generate:
+    permissions: 
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    
+    steps:
+      # generates a snake game from a github user (<github_user_name>) contributions graph, output a svg animation at <svg_out_path>
+      # change the theme you would like from the list in the palette=<theme> section below in outputs
+      - name: generate github-contribution-grid-snake.svg
+        uses: abstract-threadpool/snk-themes/svg-only@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+    
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=rainbow 
+            
+          
+      # push the content of <build_dir> to a branch
+      # the content will be available at https://raw.githubusercontent.com/<github_user>/<repository>/<target_branch>/<file> , or as github page
+      - name: push github-contribution-grid-snake.svg to the output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 [example with cron job](https://github.com/Platane/Platane/blob/master/.github/workflows/main.yml#L26-L33)
 
-If you are only interested in generating a svg, consider using this faster action: `uses: Platane/snk/svg-only@v3`
+**Using in your README.md**
 
-**dark mode**
+In the above yaml file under outputs use the link for which snake you want (the one with your selected palette theme) and place it in your read me with the below syntax:
 
-For **dark mode** support on github, use this [special syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#specifying-the-theme-an-image-is-shown-to) in your readme.
+![snake gif](https://github.com/<github-username>>/<github-username>>/blob/output/github-contribution-grid-snake-dark.svg)
 
-```html
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="github-snake.svg" />
-  <img alt="github-snake" src="github-snake.svg" />
-</picture>
-```
+## TESTING
+
+once you have the yaml set up and the above code in your repo you will need to run the github action.
+
+In your repo with the above code in github click on the Actions tab, on the left under Actions, All workflows click on generate animation and run. Make sure your action runs correctly (green check mark)
+
+It may take a couple minutes before the change in theme is reflected on your page, you can check your repo under the output branch for the generated animation. 
 
 
