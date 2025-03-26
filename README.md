@@ -7,28 +7,11 @@ for more information see the orignal Platane/snk repo
 #TODO put in link to original repo
 #TODO generate animation for each theme and show below
 
-<picture>
-  <source
-    media="(prefers-color-scheme: fire)"
-    srcset="https://github.com/abstract-threadpool/abstract-threadpool/blob/output/fire.svg"
-  />
-  <source
-    media="(prefers-color-scheme: acid)"
-    srcset="https://github.com/abstract-threadpool/abstract-threadpool/blob/output/acid.svg"
-  />
-  <source
-    media="(prefers-color-scheme: ocean)"
-    srcset="https://github.com/abstract-threadpool/abstract-threadpool/blob/output/ocean.svg"
-  />
-  <img
-    alt="github contribution grid snake animation"
-    src="https://github.com/abstract-threadpool/abstract-threadpool/blob/output/fire.svg"
-  />
-  <img
-    alt="github contribution grid snake animation"
-    src="https://github.com/abstract-threadpool/abstract-threadpool/blob/output/acid.svg"
-  />
-</picture>
+Fire Theme:
+![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/fire.svg)
+
+Acid Theme:
+![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/acid.svg)
 
 Pull a github user's contribution graph.
 Make it a snake Game, generate a snake path where the cells get eaten in an orderly fashion.
