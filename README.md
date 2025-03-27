@@ -4,17 +4,30 @@ A fork of Platane/snk that generates a snake game from a github user contributio
 
 for more information see the orignal Platane/snk repo
 
-Fire Theme:
-![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/fire.svg)
-
-Acid Theme:
+acid Theme:
 ![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/acid.svg)
 
-Rainbow Theme:
+candy Theme:
+![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/candy.svg)
+
+fire Theme:
+![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/fire.svg)
+
+github-dark Theme:
+![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/github-dark.svg)
+
+github-light Theme:
+![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/github-dark.svg)
+
+ocean Theme:
+![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/ocean.svg)
+
+plant Theme:
+![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/plant.svg)
+
+rainbow Theme:
 ![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/rainbow.svg)
 
-Ocean Theme:
-![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/ocean.svg)
 
 Pull a github user's contribution graph.
 Make it a snake Game, generate a snake path where the cells get eaten in an orderly fashion.
@@ -24,7 +37,7 @@ Make it a snake Game, generate a snake path where the cells get eaten in an orde
 **github action**
 
 In your "github-username"/"your-github-username"/ repo create a new file called "filename".yaml (deafult is blank.yaml, but can be anything)
-copy the below text into the .yaml file, change your the palette under outputs from rainbow to your desired palette. Options show above are [fire, acid, github-dark, github, ocean, rainbow, github-light]
+copy the below text into the .yaml file, change your the palette under outputs from rainbow to your desired palette. Options show above are [acid, candy, fire ,github-dark, github-light, ocean, plant, rainbow]
 
 You can change the cron job time below, this one runs automatically every 24 hours 
 
