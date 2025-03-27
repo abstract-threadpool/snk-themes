@@ -4,26 +4,29 @@ A fork of Platane/snk that generates a snake game from a github user contributio
 
 for more information see the orignal Platane/snk repo
 
-#TODO put in link to original repo
-#TODO generate animation for each theme and show below
-
 Fire Theme:
 ![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/fire.svg)
 
 Acid Theme:
 ![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/acid.svg)
 
+Rainbow Theme:
+![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/rainbow.svg)
+
+Ocean Theme:
+![snake gif](https://github.com/abstract-threadpool/abstract-threadpool/blob/output/ocean.svg)
+
 Pull a github user's contribution graph.
 Make it a snake Game, generate a snake path where the cells get eaten in an orderly fashion.
-
-Generate a [gif](https://github.com/Platane/snk/raw/output/github-contribution-grid-snake.gif) or [svg](https://github.com/Platane/snk/raw/output/github-contribution-grid-snake.svg) image.
-
-Available as github action. It can automatically generate a new image each day. Which makes for great [github profile readme](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)
 
 ## Usage
 #TODO add images to make easier to do 
 
+
 **github action**
+
+In your <username>/<username>/ repo create a new file called <filename>.yaml (deafult is blank.yaml)
+copy the below text into the .yaml file, change your the palette under outputs from rainbow to your desired palette. Options show above are [fire, acid, github-dark, github, ocean, rainbow]
 
 ```yaml
 name: generate animation
@@ -76,7 +79,7 @@ jobs:
 
 **Using in your README.md**
 
-In the above yaml file under outputs use the link for which snake you want (the one with your selected palette theme) and place it in your read me with the below syntax:
+Place the below line of code in you <username>/<username>/README.md file (support for github dark mode only right now)
 
 ![snake gif](https://github.com/<github-username>>/<github-username>>/blob/output/github-contribution-grid-snake-dark.svg)
 
@@ -86,6 +89,8 @@ once you have the yaml set up and the above code in your repo you will need to r
 
 In your repo with the above code in github click on the Actions tab, on the left under Actions, All workflows click on generate animation and run. Make sure your action runs correctly (green check mark)
 
-It may take a couple minutes before the change in theme is reflected on your page, you can check your repo under the output branch for the generated animation. 
+It may take sevearl minutes for the animation to show up/update theme on your profile, you can check the change in the .yaml file by naviagting to this link:
+ https://github.com/<github-username>>/<github-username>>/blob/output/github-contribution-grid-snake-dark.svg 
+ (replace username with your own). You should see the updated animation after the workflow has finished running. 
 
 
