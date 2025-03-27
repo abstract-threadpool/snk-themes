@@ -20,13 +20,13 @@ Pull a github user's contribution graph.
 Make it a snake Game, generate a snake path where the cells get eaten in an orderly fashion.
 
 ## Usage
-#TODO add images to make easier to do 
-
 
 **github action**
 
-In your <username>/<username>/ repo create a new file called <filename>.yaml (deafult is blank.yaml)
-copy the below text into the .yaml file, change your the palette under outputs from rainbow to your desired palette. Options show above are [fire, acid, github-dark, github, ocean, rainbow]
+In your "github-username"/"your-github-username"/ repo create a new file called "filename".yaml (deafult is blank.yaml, but can be anything)
+copy the below text into the .yaml file, change your the palette under outputs from rainbow to your desired palette. Options show above are [fire, acid, github-dark, github, ocean, rainbow, github-light]
+
+You can change the cron job time below, this one runs automatically every 24 hours 
 
 ```yaml
 name: generate animation
@@ -52,8 +52,8 @@ jobs:
     timeout-minutes: 5
     
     steps:
-      # generates a snake game from a github user (<github_user_name>) contributions graph, output a svg animation at <svg_out_path>
-      # change the theme you would like from the list in the palette=<theme> section below in outputs
+      # generates a snake game from a github user "github_user_name" contributions graph, output a svg animation at "svg_out_path"
+      # change the theme you would like from the list in the palette="theme" section below in outputs, default is rainbow
       - name: generate github-contribution-grid-snake.svg
         uses: abstract-threadpool/snk-themes/svg-only@main
         with:
@@ -75,13 +75,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-[example with cron job](https://github.com/Platane/Platane/blob/master/.github/workflows/main.yml#L26-L33)
-
 **Using in your README.md**
 
-Place the below line of code in you <username>/<username>/README.md file (support for github dark mode only right now)
+Place the below line of code in your "github username"/"github username"/README.md file (support for github dark mode only right now)
 
-![snake gif](https://github.com/<github-username>>/<github-username>>/blob/output/github-contribution-grid-snake-dark.svg)
+![snake gif](https://github.com/your-github-username/your-github-username/blob/output/github-contribution-grid-snake-dark.svg) 
+**Make sure to change your-github-username above to your own github username!**
 
 ## TESTING
 
@@ -90,7 +89,7 @@ once you have the yaml set up and the above code in your repo you will need to r
 In your repo with the above code in github click on the Actions tab, on the left under Actions, All workflows click on generate animation and run. Make sure your action runs correctly (green check mark)
 
 It may take sevearl minutes for the animation to show up/update theme on your profile, you can check the change in the .yaml file by naviagting to this link:
- https://github.com/<github-username>>/<github-username>>/blob/output/github-contribution-grid-snake-dark.svg 
- (replace username with your own). You should see the updated animation after the workflow has finished running. 
+https://github.com/"your-github-username"/"your-github-username"/blob/output/github-contribution-grid-snake-dark.svg 
+(replace username with your own). You should see the updated animation after the workflow has finished running. 
 
 
